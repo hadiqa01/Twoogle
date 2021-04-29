@@ -45,7 +45,7 @@ def getTweets():
     auth.set_access_token(api_access_token, api_access_token_secret)
     api = tweepy.API(auth, wait_on_rate_limit=True)
     query = keyword # "coronavirus covid vaccine vaccination COVID-19" # text from the search box
-    tweets_ = tweepy.Cursor(api.search, query, result_type='recent').items(10)
+    tweets_ = tweepy.Cursor(api.search, query, result_type='recent').items(20) #change the items number to decrease / increase the tweets. the bigger the number the longer it'll take to retreive.
     tweets = [tweet.text for tweet in tweets_]    
 
     print("Done..retrieving tweets from API based on the keyword=" + keyword)
