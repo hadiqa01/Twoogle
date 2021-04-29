@@ -1,13 +1,29 @@
-# Twoogle
-Twitter **sentiment analysis** search engine to retrieve and classify real time COVID-19 vaccination tweets. Powered by DistilBERT fine-tuned on [Coronavirus Tweets Dataset](https://ieee-dataport.org/open-access/coronavirus-covid-19-tweets-dataset#files).
+Before running the following commands, make sure you have python virtual environment
+installed in your computer. 
 
-## Quick Start
 
-Run the following commands from a **Python virtual environment**. 
+#NOTES#
+=========
+## If you already have python virtual environment:
 
-1. `pip3 install --upgrade pip`
-2. `pip3 install -r requirements.txt`
-3. `python3 main.py`
+1.  Open Powershell in Administrator mode or just cmd and then run these commands:
+cd "C:\.........." (this is the directory where main.py is located)
 
-Then go to the following address in your browser:
-`127.0.0.1:5000/`
+2.  Create a virtual environment:
+	  python -m venv python_venv
+
+3.  set-executionpolicy remotesigned
+
+4.  activate the virtual environment	
+	  .\python_venv\Scripts\activate
+
+5.  To fufil all the requirements for the python server, you need to run:
+	   pip3 install -r requirements.txt
+
+6.  pip install --upgrade pip
+
+7.  source python_venv/bin/activate
+
+8.  python main.py
+
+9. It'll give you something like that 127.0.0.1:5000/ which will be your local host. Just copy /paste the link in your browser. 
