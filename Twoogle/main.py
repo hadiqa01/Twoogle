@@ -3,9 +3,11 @@ app = Flask(__name__)
 
 
 import pandas as pd
-from transformers import pipeline
+# from transformers import pipeline
+from transformers import pipeline, DistilBertForSequenceClassification, DistilBertTokenizerFast
 import tweepy
 
+LABELS = {'LABEL_0': 'NEGATIVE', 'LABEL_1': 'POSITIVE'}
 
 # # for tweet in tweets:
 # #     print(tweet)
@@ -43,7 +45,7 @@ def getTweets():
     auth.set_access_token(api_access_token, api_access_token_secret)
     api = tweepy.API(auth, wait_on_rate_limit=True)
     query = keyword # "coronavirus covid vaccine vaccination COVID-19" # text from the search box
-    tweets_ = tweepy.Cursor(api.search, query, result_type='recent').items(30)
+    tweets_ = tweepy.Cursor(api.search, query, result_type='recent').items(10)
     tweets = [tweet.text for tweet in tweets_]    
 
     print("Done..retrieving tweets from API based on the keyword=" + keyword)
@@ -64,9 +66,14 @@ def getTweets():
     # print("df=" + df)
     # Iterate over `tweets` and pass each item to `model()` to obtain
     # prediction, then write those predictions to a Pandas dataframe
-    model = pipeline('sentiment-analysis')
-    df['Sentiment'] = list(model(t)[0].get('label') for t in tweets)
+    model = pipeline('sentiment-analysis',
+            model=DistilBertForSequenceClassification.from_pretrained("checkpoint-9500"),
+            tokenizer=DistilBertTokenizerFast.from_pretrained('distilbert-base-uncased'))
+    # model = pipeline('sentiment-analysis')
+    df['Sentiment'] = list(LABELS[model(t)[0].get('label')] for t in tweets)
     df['Score'] = list(model(t_)[0].get('score') for t_ in tweets)
+    # df['Sentiment'] = list(model(t)[0].get('label') for t in tweets)
+    # df['Score'] = list(model(t_)[0].get('score') for t_ in tweets)
     print("Done..sentiment-analysis")
     print(df)
     return render_template("covid.html", data=list(df.values.tolist()))   
