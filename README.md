@@ -21,4 +21,4 @@ The webpage is a simple interface that allows you to search for **real time** tw
 You need to explicitly concatenate a query with multiple terms: <br>
 
 <!-- ![Query Example](images/query_ex.png "Query Example") -->
-<img src="images/query_ex.png" height="450" title="Query Example"/>
+<img src="images/query_ex.png" height="250" title="Query Example"/>
