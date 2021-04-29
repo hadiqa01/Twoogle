@@ -8,7 +8,7 @@ Clone this repository:
 
 Included is a large (> 250 MB) pre-trained model binary so cloning might take a few minutes. This is the model trained on the above dataset.
 
-Run the following commands from a **Python virtual environment**:
+Once cloning completes, `cd` into the parent folder and run the following commands (preferrably from a **Python virtual environment**):
 
 > 1. `pip3 install --upgrade pip`
 > 2. `pip3 install -r requirements.txt`
