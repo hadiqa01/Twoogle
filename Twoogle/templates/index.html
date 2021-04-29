@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Twoogle</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type=text/javascript>         
+            function goSearch() {
+              $("#results").show();
+              $("#results").load("/getTweets?keyword=" + $("#searchText").val());
+            }
+  </script>
+
+<style>
+    .jumbotron {
+      background-color: #f3b3b3;
+      color: #ffffff;
+    }
+
+    p{
+      font-family: Montserrat, sans-serif;
+      font-size: 18px !important;
+    }
+    
+  .div-table {
+    display: table;         
+    width: auto;         
+    background-color: #eee;         
+    border: 1px solid #666666;         
+    border-spacing: 5px; /* cellspacing:poor IE support for  this */
+  }
+  .div-table-row {
+    display: table-row;
+    width: auto;
+    clear: both;
+    background-color: #ccc;  
+  }
+  .div-table-col {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;         
+    width: 200px;         
+    /* background-color: #ccc;   */
+  }    
+</style>
+
+<body>  
+<div class="jumbotron text-center">
+    <img src="{{url_for('static', filename='twoogle.png')}}" alt="logo twoogle" style="width:30%">
+    <p>Twoogle does not need Google</p>
+    <form class="form-inline">
+      <div class="input-group">
+        <input id="searchText" class="form-control" size="50" placeholder="Start Your Search" required>
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-danger" onclick="goSearch()">Search</button>
+        </div>
+      </div>
+    </form>
+</div> 
+<div id="results" class="container" hidden>
+  <div class="text-center row">
+    <div class="col-12">
+      <img src="../static/waiting.gif" width="30%"/>
+    </div>
+    <div class="col-12">
+      <img src="../static/loading.gif" width="20%"/>
+    </div>    
+  </div>
+</div>
+</body>
+</html> 
