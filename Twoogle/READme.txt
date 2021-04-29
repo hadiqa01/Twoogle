@@ -25,3 +25,5 @@ cd "C:\.........." (this is the directory where main.py is located)
 7.  source python_venv/bin/activate
 
 8.  python main.py
+
+9. It'll give you something like that 127.0.0.1:5000/ which will be your local host. Just copy /paste the link in your browser. 
