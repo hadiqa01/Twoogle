@@ -18,7 +18,7 @@ Then go to the following address in your browser:
 > `127.0.0.1:5000/`
 
 The webpage is a simple interface that allows you to search for **real time** tweets using a query of your choice. <br>
-You need to explicitly concatenate a query with multiple terms: <br>
+For a query with multiple terms, we recommend that you explicitly concatenate the terms: <br>
 
 <!-- ![Query Example](images/query_ex.png "Query Example") -->
 <img src="images/query_ex.png" height="250" title="Query Example"/>
