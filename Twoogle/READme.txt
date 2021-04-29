@@ -1,15 +1,13 @@
-
-First, you'll need to install python virtual environment with:
-```
-install python-venv
-```
+Before running the following commands, make sure you have python virtual environment
+installed in your computer. 
 
 
 #NOTES#
 =========
-## Assuming you already have python virtual environment:
+## If you already have python virtual environment:
+
 1.  Open Powershell in Administrator mode or just cmd and then run these commands:
-cd "C:\Users\Hadiqa\Documents\ECU courses\Fall2021\Web app\hw5\hw5" (this is the directory where main.py is located)
+cd "C:\.........." (this is the directory where main.py is located)
 
 2.  Create a virtual environment:
 	  python -m venv python_venv
