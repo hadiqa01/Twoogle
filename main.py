@@ -37,22 +37,21 @@ def getTweets():
     
     # Fetch the 20 most recent tweets matching the query. Change the argument
     # in `items()` to decrease or increase the number of retrieved tweets.
-    # The larger the number the longer the retreival time.
+    # The larger the number the longer the retreival time
     query = keyword # text from the search box
     tweets_ = tweepy.Cursor(api.search, query, result_type='recent').items(20)
     tweets = [tweet.text for tweet in tweets_]    
 
-    print("Done..retrieving tweets from API based on the keyword=" + keyword)
+    print("Done ... retrieving tweets from API based on the keyword=" + keyword)
  
     df = pd.DataFrame(data=tweets, columns=['Tweet'])
-    print("Done..creating dataframe")
+    print("Done ... creating dataframe")
 
-    # Iterate over `tweets` and pass each item to `model()` to obtain
-    # prediction, then write those predictions to a Pandas dataframe
+    # Iterate over the tweet texts in `tweets` and pass each item to the model
+    # to obtain a prediction, then write those predictions to a Pandas dataframe
     model = pipeline('sentiment-analysis',
             model=DistilBertForSequenceClassification.from_pretrained("model"),
             tokenizer=DistilBertTokenizerFast.from_pretrained('distilbert-base-uncased'))
-
     df['Sentiment'] = list(LABELS[model(t)[0].get('label')] for t in tweets)
     df['Score'] = list(model(t_)[0].get('score') for t_ in tweets)
 
