@@ -20,5 +20,5 @@ Then go to the following address in your browser:
 The webpage is a simple interface that allows you to search for **real time** tweets using a query of your choice. <br>
 You need to explicitly concatenate a query with multiple terms: <br>
 
-![Query Example](images/query_ex.png "Query Example")
-
+<!-- ![Query Example](images/query_ex.png "Query Example") -->
+<img src="images/query_ex.png" height="450" title="Query Example"/>
