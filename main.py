@@ -52,8 +52,9 @@ def getTweets():
     model = pipeline('sentiment-analysis',
             model=DistilBertForSequenceClassification.from_pretrained("model"),
             tokenizer=DistilBertTokenizerFast.from_pretrained('distilbert-base-uncased'))
-    df['Sentiment'] = list(LABELS[model(t)[0].get('label')] for t in tweets)
-    df['Score'] = list(model(t_)[0].get('score') for t_ in tweets)
+    results = list(model(tweet) for tweet in tweets)
+    df['Sentiment'] = list(LABELS[s[0].get('label')] for s in results)
+    df['Score'] = list(s_[0].get('score') for s_ in results)
 
     print("Done ... sentiment-analysis")
     print(df)
