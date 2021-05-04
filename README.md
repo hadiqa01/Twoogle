@@ -1,5 +1,5 @@
 # Twoogle
-***Twoogle*** is a Twitter **sentiment analysis** search engine for retrieving and classifying real-time COVID-19 vaccination-related tweets. The application is powered by DistilBERT fine-tuned on [Coronavirus Tweets Dataset](https://ieee-dataport.org/open-access/coronavirus-covid-19-tweets-dataset#files).
+***Twoogle*** is a Twitter **sentiment analysis** search engine for retrieving and classifying real-time COVID-19 vaccination-related tweets. The application is powered by [DistilBERT](https://arxiv.org/abs/1910.01108) fine-tuned on [Coronavirus Tweets Dataset](https://ieee-dataport.org/open-access/coronavirus-covid-19-tweets-dataset#files).
 
 ## Quick Start
 
