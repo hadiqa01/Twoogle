@@ -22,3 +22,17 @@ For a query with multiple terms, we recommend that you explicitly concatenate th
 
 <!-- ![Query Example](images/query_ex.png "Query Example") -->
 <img src="images/query_ex.png" height="250" title="Query Example"/>
+
+## Using Arbitrary Text
+
+You can also try out the model using copied tweets or text of your choice. To do this, simply run `analyze.py` with a text string argument from the root folder of the repository (ensure Git LFS is already installed):
+
+> `python3 analyze.py "Not sure what to think but perhaps the Moderna shots work."` <br>
+> returns <br>
+> `The sentiment for the text 'Not sure what to think but perhaps the Moderna shots work.' is POSITIVE with a probaility of 0.98905.`
+> <br> <br>
+> `python3 analyze.py "Does the J&J one-shot vaccine work at all? Asking for a friend."` <br>
+> returns <br>
+> `The sentiment for the text 'Does the J&J one-shot vaccine work at all? Asking for a friend.' is NEGATIVE with a probaility of 0.99597.`
+
+**Note**: The example texts **do not** necessarily reflect the sentiments (no pun intended) of the team.
